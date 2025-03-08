@@ -1,100 +1,115 @@
-/* 全局样式 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* 基础样式 */
+:root {
+    --primary-color: #FF6B6B;  /* 主色调 */
+    --guitar-color: #6B6BFF;   /* 吉他主题色 */
+    --ukulele-color: #6BFF6B;  /* 尤克里里主题色 */
+}
+
+body {
+    background: #f8f9fa;
     font-family: 'Poppins', sans-serif;
 }
 
 /* 导航栏 */
 .navbar {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(255, 107, 107, 0.95);
     padding: 1rem;
     position: fixed;
     width: 100%;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .logo {
     color: white;
-    font-family: 'Dancing Script', cursive;
-}
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-.nav-links a:hover {
-    color: #00F3FF; /* 科技蓝 */
+    font-size: 1.5rem;
 }
 
-/* 科技板块动态背景 */
-.tech-section {
-    background: linear-gradient(45deg, #1A1A2E, #0F3460);
-    color: white;
-    padding-top: 100px;
-}
-.tech-header {
-    position: relative;
-    overflow: hidden;
-    padding: 4rem;
+/* 筛选控件 */
+.filters {
+    padding: 90px 20px 20px; /* 避开导航栏 */
     text-align: center;
 }
-.tech-header::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(0, 243, 255, 0.1), 
-        transparent);
-    animation: flow 3s infinite;
+#difficulty {
+    padding: 8px;
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
 }
 
-/* 音乐板块音频波纹 */
-.audio-wave {
-    height: 50px;
-    background: repeating-linear-gradient(
-        90deg,
-        #8A2BE2 0px,
-        #FF6B6B 20px,
-        transparent 20px,
-        transparent 40px
-    );
-    animation: wave 1s linear infinite;
+/* 乐谱卡片 */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-/* 白日梦卡片悬停效果 */
-.dream-card {
-    background: #F5F5F5;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
 }
-.dream-card:hover {
+.card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* 动画定义 */
-@keyframes flow {
-    0% { left: -100%; }
-    100% { left: 100%; }
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    font-weight: bold;
+}
+.card.guitar .instrument { color: var(--guitar-color); }
+.card.ukulele .instrument { color: var(--ukulele-color); }
+
+.sheet-preview {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--primary-color);
 }
 
-@keyframes wave {
-    0% { background-position: 0 0; }
-    100% { background-position: 40px 0; }
+/* 详情按钮交互 */
+.card-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 15px;
+}
+.card-detail.active {
+    max-height: 150px;
+    padding: 15px;
 }
 
-/* 响应式布局 */
+.video-link, .download-link {
+    display: block;
+    margin: 10px 0;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* 移动端适配 */
 @media (max-width: 768px) {
-    .music-grid {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: rgba(255,107,107,0.95);
+        width: 100%;
+        padding: 10px;
+    }
+    .nav-links.active {
+        display: flex;
         flex-direction: column;
+    }
+    .menu-icon {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
     }
 }
