@@ -2,60 +2,74 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WayStory - 探索科技·音乐·白日梦</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MusicWay - 乐器谱与音乐分享</title>
     <link rel="stylesheet" href="style.css">
-    <!-- 引入 Google Fonts 字体 -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- 引入图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- 导航栏 -->
     <nav class="navbar">
-        <h1 class="logo">WayStory</h1>
+        <h1 class="logo"><i class="fas fa-music"></i> MusicWay</h1>
+        <div class="menu-icon">☰</div>
         <ul class="nav-links">
-            <li><a href="#tech">科技</a></li>
-            <li><a href="#music">音乐</a></li>
-            <li><a href="#dream">白日梦</a></li>
+            <li><a href="#all">全部</a></li>
+            <li><a href="#guitar">吉他</a></li>
+            <li><a href="#ukulele">尤克里里</a></li>
         </ul>
     </nav>
 
-    <!-- 科技板块 -->
-    <section id="tech" class="section tech-section">
-        <div class="tech-header">
-            <h2>未来科技前沿</h2>
-            <p>探索最新技术与工作洞见</p>
-        </div>
-        <div class="card">
-            <img src="https://example.com/ar-tech.jpg" alt="AR技术" class="tech-image">
-            <h3>AR交互革命</h3>
-            <p>深度解析下一代增强现实技术...</p>
-        </div>
-    </section>
+    <!-- 筛选控件 -->
+    <div class="filters">
+        <select id="difficulty">
+            <option value="all">所有难度</option>
+            <option value="easy">简单</option>
+            <option value="medium">中等</option>
+            <option value="hard">困难</option>
+        </select>
+    </div>
 
-    <!-- 音乐板块 -->
-    <section id="music" class="section music-section">
-        <div class="music-header">
-            <h2>灵魂旋律</h2>
-            <div class="audio-wave"></div>
-        </div>
-        <div class="music-grid">
-            <div class="video-container">
-                <iframe src="https://example.com/music-video"></iframe>
+    <!-- 乐谱卡片容器 -->
+    <div class="music-grid" id="musicContainer">
+        <!-- 示例卡片1（吉他） -->
+        <div class="card guitar medium">
+            <div class="card-header">
+                <span class="instrument"><i class="fas fa-guitar"></i> 吉他</span>
+                <span class="difficulty">中等</span>
             </div>
-            <div class="sheet-music">
-                <img src="https://example.com/piano-sheet.jpg" alt="琴谱">
+            <img src="https://example.com/guitar-sheet-1.jpg" alt="晴天吉他谱" class="sheet-preview">
+            <h3>晴天 - 周杰伦</h3>
+            <button class="btn-detail" onclick="toggleDetail(this)">查看详情</button>
+            <div class="card-detail">
+                <a href="https://youtu.be/xxxxxx" target="_blank" class="video-link">
+                    <i class="fab fa-youtube"></i> 教学视频
+                </a>
+                <a href="pdf/晴天.pdf" download class="download-link">
+                    <i class="fas fa-download"></i> 下载谱面
+                </a>
             </div>
         </div>
-    </section>
 
-    <!-- 白日梦板块 -->
-    <section id="dream" class="section dream-section">
-        <div class="dream-card">
-            <img src="https://example.com/forest.jpg" alt="晨雾森林">
-            <h3>晨间随想</h3>
-            <p>在晨雾中寻找生活的诗意...</p>
+        <!-- 示例卡片2（尤克里里） -->
+        <div class="card ukulele easy">
+            <div class="card-header">
+                <span class="instrument"><i class="fas fa-umbrella-beach"></i> 尤克里里</span>
+                <span class="difficulty">简单</span>
+            </div>
+            <img src="https://example.com/ukulele-sheet-1.jpg" alt="小手拉大手" class="sheet-preview">
+            <h3>小手拉大手 - 梁静茹</h3>
+            <button class="btn-detail" onclick="toggleDetail(this)">查看详情</button>
+            <div class="card-detail">
+                <a href="https://youtu.be/xxxxxx" target="_blank" class="video-link">
+                    <i class="fab fa-bilibili"></i> 演示视频
+                </a>
+                <a href="pdf/小手拉大手.pdf" download class="download-link">
+                    <i class="fas fa-download"></i> 下载谱面
+                </a>
+            </div>
         </div>
-    </section>
+    </div>
 
     <script src="script.js"></script>
 </body>
