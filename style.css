@@ -1,37 +1,100 @@
-/* 基础样式 */
-body {
-    font-family: Arial, sans-serif;
+/* 全局样式 */
+* {
     margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* 导航栏 */
+.navbar {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
-
-h1 {
-    color: #333;
-}
-
-p {
-    color: #666;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
+.logo {
     color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.nav-links a:hover {
+    color: #00F3FF; /* 科技蓝 */
 }
 
-button:hover {
-    background-color: #0056b3;
+/* 科技板块动态背景 */
+.tech-section {
+    background: linear-gradient(45deg, #1A1A2E, #0F3460);
+    color: white;
+    padding-top: 100px;
+}
+.tech-header {
+    position: relative;
+    overflow: hidden;
+    padding: 4rem;
+    text-align: center;
+}
+.tech-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 243, 255, 0.1), 
+        transparent);
+    animation: flow 3s infinite;
+}
+
+/* 音乐板块音频波纹 */
+.audio-wave {
+    height: 50px;
+    background: repeating-linear-gradient(
+        90deg,
+        #8A2BE2 0px,
+        #FF6B6B 20px,
+        transparent 20px,
+        transparent 40px
+    );
+    animation: wave 1s linear infinite;
+}
+
+/* 白日梦卡片悬停效果 */
+.dream-card {
+    background: #F5F5F5;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.dream-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 动画定义 */
+@keyframes flow {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes wave {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 0; }
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .music-grid {
+        flex-direction: column;
+    }
 }
