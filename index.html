@@ -3,18 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的第一个网站</title>
-    <!-- 链接 CSS 文件 -->
+    <title>WayStory - 探索科技·音乐·白日梦</title>
     <link rel="stylesheet" href="style.css">
+    <!-- 引入 Google Fonts 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>欢迎来到我的网站！</h1>
-        <p>这是一个最简单的静态网站示例。</p>
-        <button id="myButton">点我试试</button>
-    </div>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <h1 class="logo">WayStory</h1>
+        <ul class="nav-links">
+            <li><a href="#tech">科技</a></li>
+            <li><a href="#music">音乐</a></li>
+            <li><a href="#dream">白日梦</a></li>
+        </ul>
+    </nav>
 
-    <!-- 链接 JavaScript 文件 -->
+    <!-- 科技板块 -->
+    <section id="tech" class="section tech-section">
+        <div class="tech-header">
+            <h2>未来科技前沿</h2>
+            <p>探索最新技术与工作洞见</p>
+        </div>
+        <div class="card">
+            <img src="https://example.com/ar-tech.jpg" alt="AR技术" class="tech-image">
+            <h3>AR交互革命</h3>
+            <p>深度解析下一代增强现实技术...</p>
+        </div>
+    </section>
+
+    <!-- 音乐板块 -->
+    <section id="music" class="section music-section">
+        <div class="music-header">
+            <h2>灵魂旋律</h2>
+            <div class="audio-wave"></div>
+        </div>
+        <div class="music-grid">
+            <div class="video-container">
+                <iframe src="https://example.com/music-video"></iframe>
+            </div>
+            <div class="sheet-music">
+                <img src="https://example.com/piano-sheet.jpg" alt="琴谱">
+            </div>
+        </div>
+    </section>
+
+    <!-- 白日梦板块 -->
+    <section id="dream" class="section dream-section">
+        <div class="dream-card">
+            <img src="https://example.com/forest.jpg" alt="晨雾森林">
+            <h3>晨间随想</h3>
+            <p>在晨雾中寻找生活的诗意...</p>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
