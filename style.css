@@ -1,115 +1,56 @@
-/* 基础样式 */
-:root {
-    --primary-color: #FF6B6B;  /* 主色调 */
-    --guitar-color: #6B6BFF;   /* 吉他主题色 */
-    --ukulele-color: #6BFF6B;  /* 尤克里里主题色 */
-}
-
+/* 新增全局居中容器 */
 body {
-    background: #f8f9fa;
-    font-family: 'Poppins', sans-serif;
-}
-
-/* 导航栏 */
-.navbar {
-    background: rgba(255, 107, 107, 0.95);
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: center; /* 水平居中 */
+    min-height: 100vh;
 }
 
-.logo {
-    color: white;
-    font-size: 1.5rem;
+/* 导航栏居中约束 */
+.navbar {
+    max-width: 1200px; /* 限制最大宽度 */
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%); /* 精准水平居中 */
 }
 
-/* 筛选控件 */
+/* 内容主体容器 */
+.main-container {
+    width: 100%;
+    max-width: 1200px; /* 与导航栏统一宽度 */
+    padding: 20px;
+    margin-top: 70px; /* 避开导航栏 */
+}
+
+/* 筛选控件居中 */
 .filters {
-    padding: 90px 20px 20px; /* 避开导航栏 */
-    text-align: center;
-}
-#difficulty {
-    padding: 8px;
-    border: 2px solid var(--primary-color);
-    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
-/* 乐谱卡片 */
+/* 乐谱网格居中适配 */
 .music-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    justify-items: center; /* 卡片水平居中 */
+    gap: 30px;
+    width: 100%;
 }
 
+/* 卡片内部元素居中 */
 .card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-.card:hover {
-    transform: translateY(-5px);
+    width: 100%;
+    max-width: 350px; /* 控制卡片最大宽度 */
+    text-align: center; /* 文字内容居中 */
 }
 
 .card-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px;
-    font-weight: bold;
-}
-.card.guitar .instrument { color: var(--guitar-color); }
-.card.ukulele .instrument { color: var(--ukulele-color); }
-
-.sheet-preview {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 3px solid var(--primary-color);
+    justify-content: center; /* 头部元素居中 */
+    gap: 15px; /* 元素间距 */
 }
 
-/* 详情按钮交互 */
-.card-detail {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    padding: 0 15px;
-}
-.card-detail.active {
-    max-height: 150px;
-    padding: 15px;
-}
-
-.video-link, .download-link {
-    display: block;
-    margin: 10px 0;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-/* 移动端适配 */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background: rgba(255,107,107,0.95);
-        width: 100%;
-        padding: 10px;
-    }
-    .nav-links.active {
-        display: flex;
-        flex-direction: column;
-    }
-    .menu-icon {
-        display: block;
-        color: white;
-        font-size: 1.5rem;
-    }
+/* 按钮居中 */
+.btn-detail {
+    margin: 15px auto; /* 自动水平居中 */
 }
